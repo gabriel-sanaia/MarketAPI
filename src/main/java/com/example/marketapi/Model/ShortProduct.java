@@ -1,6 +1,6 @@
 package com.example.marketapi.Model;
 
-public class ProductShort {
+public class ShortProduct {
 
     private int Id;
     private String name;

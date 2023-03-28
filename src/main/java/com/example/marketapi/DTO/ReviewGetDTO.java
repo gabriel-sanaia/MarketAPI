@@ -1,18 +1,9 @@
-package com.example.marketapi.Model;
+package com.example.marketapi.DTO;
 
-import jakarta.persistence.*;
-
-@Entity
-public class Review {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "reviews_seq")
-    @SequenceGenerator(name = "reviews_seq1")
+public class ReviewGetDTO {
     private Long id;
     private String username;
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private FullProduct product;
+    private Long productId;
     private int rating;
     private String comment;
 
@@ -32,12 +23,12 @@ public class Review {
         this.username = username;
     }
 
-    public FullProduct getProduct() {
-        return product;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setProduct(FullProduct product) {
-        this.product = product;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public int getRating() {

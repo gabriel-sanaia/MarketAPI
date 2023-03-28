@@ -5,7 +5,7 @@ public class Basket {
     private int Id;
     private int quantity;
     private int price;
-    private ProductShort product;
+    private ShortProduct product;
 
 
 }

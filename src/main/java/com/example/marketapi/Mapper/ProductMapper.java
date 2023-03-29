@@ -1,14 +1,14 @@
 package com.example.marketapi.Mapper;
 
 import com.example.marketapi.DTO.FullProductDTO;
-import com.example.marketapi.DTO.ShortProductDTO;
-import com.example.marketapi.Model.FullProduct;
+import com.example.marketapi.DTO.ProductShortDTO;
+import com.example.marketapi.Model.Product;
 
 public class ProductMapper {
 
     ReviewMapper reviewMapper = new ReviewMapper();
 
-    public FullProductDTO mapToFullDTO(FullProduct entity){
+    public FullProductDTO mapToFullDTO(Product entity){
         FullProductDTO dto = new FullProductDTO();
 
         dto.setId(entity.getId());
@@ -30,8 +30,8 @@ public class ProductMapper {
         return dto;
     }
 
-    public ShortProductDTO mapToShortDTO(FullProduct entity){
-        ShortProductDTO dto = new ShortProductDTO();
+    public ProductShortDTO mapToShortDTO(Product entity){
+        ProductShortDTO dto = new ProductShortDTO();
 
         dto.setId(entity.getId());
         dto.setName(entity.getName());

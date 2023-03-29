@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "product")
-public class FullProduct {
+public class Product {
 
     @Id
     private Long id;
@@ -29,11 +29,11 @@ public class FullProduct {
     private double reviewsAvg;
     private String pic;
 
-    public FullProduct(String name) {
+    public Product(String name) {
         this.name = name;
     }
 
-    public FullProduct() {
+    public Product() {
 
     }
 

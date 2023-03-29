@@ -1,6 +1,6 @@
 package com.example.marketapi.DTO;
 
-public class ShortProductDTO {
+public class ProductShortDTO {
 
     private Long id;
     private String name;
@@ -46,5 +46,41 @@ public class ShortProductDTO {
 
     public void setPic(String pic) {
         this.pic = pic;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public Long getSubCategoryId() {
+        return subCategoryId;
+    }
+
+    public Long getBrandId() {
+        return brandId;
+    }
+
+    public int getReviewsCount() {
+        return reviewsCount;
+    }
+
+    public double getReviewsAvg() {
+        return reviewsAvg;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getPic() {
+        return pic;
     }
 }

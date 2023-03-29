@@ -1,10 +1,9 @@
 package com.example.marketapi.ServiceImpl;
 
-import com.example.marketapi.DTO.FullProductDTO;
 import com.example.marketapi.DTO.ReviewGetDTO;
 import com.example.marketapi.DTO.ReviewPostDTO;
 import com.example.marketapi.Mapper.ReviewMapper;
-import com.example.marketapi.Model.FullProduct;
+import com.example.marketapi.Model.Product;
 import com.example.marketapi.Model.ResponseBody;
 import com.example.marketapi.Model.Review;
 import com.example.marketapi.Repository.ReviewRepository;
@@ -25,7 +24,7 @@ public class ReviewServiceImpl implements ReviewService {
     public ResponseBody postReview(Long productId, ReviewPostDTO dto) {
         Review review = reviewMapper.mapToEntity(dto);
 
-        FullProduct product = new FullProduct();
+        Product product = new Product();
         product.setId(productId);
 
         review.setProduct(product);

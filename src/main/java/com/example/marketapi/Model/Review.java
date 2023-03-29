@@ -6,13 +6,16 @@ import jakarta.persistence.*;
 public class Review {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "reviews_seq")
-    @SequenceGenerator(name = "reviews_seq1")
+    @TableGenerator(name = "seq_reviews",
+            table = "seq_market", schema = "public", pkColumnName = "gen_key",
+            valueColumnName = "gen_value", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "seq_reviews") //// FIXME: 28.03.2023
+    @Column(name = "id")
     private Long id;
     private String username;
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private FullProduct product;
+    private Product product;
     private int rating;
     private String comment;
 
@@ -32,11 +35,11 @@ public class Review {
         this.username = username;
     }
 
-    public FullProduct getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(FullProduct product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 

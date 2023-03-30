@@ -9,11 +9,11 @@ public class Basket {
 
     @Id
     @TableGenerator(name = "seq_baskets", table = "seq_market", schema = "public",
-                    pkColumnName = "gen_key", valueColumnName = "gen_value", allocationSize = 1)
+                    pkColumnName = "gen_key", valueColumnName = "next_val", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "seq_baskets")
     private Long id;
 
-    @OneToMany(mappedBy = "basket") //fixme
+    @OneToMany(mappedBy = "basket")
     private List<ProductBundle> productBundle;
 
     public Long getId() {

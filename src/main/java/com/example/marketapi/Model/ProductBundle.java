@@ -5,9 +5,8 @@ import jakarta.persistence.*;
 @Entity
 public class ProductBundle {
     @Id
-    @TableGenerator(name = "seq_productBundles",
-                    table = "seq_market", schema = "public",
-                    pkColumnName = "gen_key", pkColumnValue = "gen_value")
+    @TableGenerator(name = "seq_productBundles", table = "seq_market", schema = "public",
+                    pkColumnName = "gen_key", pkColumnValue = "next_val", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "seq_productBundles")
     private Long id;
     private Integer quantity;

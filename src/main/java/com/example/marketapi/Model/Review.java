@@ -8,7 +8,7 @@ public class Review {
     @Id
     @TableGenerator(name = "seq_reviews",
             table = "seq_market", schema = "public", pkColumnName = "gen_key",
-            valueColumnName = "gen_value", allocationSize = 1)
+            valueColumnName = "next_val", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "seq_reviews") //// FIXME: 28.03.2023
     @Column(name = "id")
     private Long id;

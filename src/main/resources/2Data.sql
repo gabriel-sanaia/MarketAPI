@@ -1,7 +1,7 @@
-INSERT INTO brand VALUES
-(1, 'brand1'),
-(2, 'brand2'),
-(3, 'brand3');
+-- INSERT INTO brand VALUES
+-- (1, 'brand1'),
+-- (2, 'brand2'),
+-- (3, 'brand3');
 
 -- INSERT INTO category VALUES
 -- (1, 'category1', 0),

@@ -2,10 +2,7 @@ package com.example.marketapi.Mapper;
 
 import com.example.marketapi.DTO.ProductBundleDTO;
 import com.example.marketapi.DTO.ProductShortDTO;
-import com.example.marketapi.Model.Product;
 import com.example.marketapi.Model.ProductBundle;
-import com.example.marketapi.Service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +20,7 @@ public class ProductBundleMapper {
         Double price = entity.getProduct().getPrice() * entity.getQuantity();
         dto.setPrice(price);
         ProductShortDTO productShortDTO = productMapper.mapToShortDTO(entity.getProduct());
-        dto.setShortProduct(productShortDTO);
+        dto.setProduct(productShortDTO);
 
         return dto;
 

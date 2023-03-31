@@ -1,16 +1,16 @@
 package com.example.marketapi.DTO;
 
 public class ProductShortDTO {
-
-    private Long id;
-    private String name;
-    private Long categoryId;
-    private Long subCategoryId;
+    private double price;
     private Long brandId;
     private int reviewsCount;
     private double reviewsAvg;
-    private double price;
+    private Long categoryId;
+    private Long subCategoryId;
     private String pic;
+    private Long id;
+    private String name;
+
 
     public void setId(Long id) {
         this.id = id;

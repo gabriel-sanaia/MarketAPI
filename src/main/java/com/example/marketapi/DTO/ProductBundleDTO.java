@@ -4,7 +4,7 @@ public class ProductBundleDTO {
     private Long id;
     private Integer quantity;
     private Double price;
-    private ProductShortDTO shortProduct;
+    private ProductShortDTO product;
 
     public Long getId() {
         return id;
@@ -30,11 +30,11 @@ public class ProductBundleDTO {
         this.price = price;
     }
 
-    public ProductShortDTO getShortProduct() {
-        return shortProduct;
+    public ProductShortDTO getProduct() {
+        return product;
     }
 
-    public void setShortProduct(ProductShortDTO shortProduct) {
-        this.shortProduct = shortProduct;
+    public void setProduct(ProductShortDTO product) {
+        this.product = product;
     }
 }

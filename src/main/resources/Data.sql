@@ -1,0 +1,21 @@
+-- INSERT INTO brand VALUES
+-- (1, 'Samsung'),
+-- (2, 'HP'),
+-- (3, 'Yamaha'),
+-- (4, 'Asus');
+--
+-- INSERT INTO category VALUES
+-- (1, 'Electronics', 0),
+-- (2, 'Computers', 0),
+-- (3, 'Musical Instruments', 0);
+--
+-- INSERT INTO subcategory VALUES
+-- (1, 'Fridges', 1, 1),
+-- (2, 'Pianos', 3, 3),
+-- (3, 'Monitors', 1, 1);
+
+
+-- INSERT INTO product VALUES
+-- (1, 'Samsung Fridge', 'Samsung fridge. White...', 'Fridge', 'pic', 500, 0, 0, 1, 1, 1),
+-- (2, 'Computer Monitor', 'Asus Computer Monitor. White', 'Asus monitor', 'pic', 400, 0, 0, 4, 2, 3),
+-- (3, 'Yamaha Piano psr-530', 'Yamaha electic piano psr-530 black', 'Yamaha Piano', 'pic', 300, 0, 0, 3, 3, 2);

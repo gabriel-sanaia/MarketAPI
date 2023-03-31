@@ -14,7 +14,33 @@ public class Basket {
     private Long id;
 
     @OneToMany(mappedBy = "basket")
-    private List<ProductBundle> productBundle;
+    private List<ProductBundle> productBundles;
+
+    public boolean containsProduct(Long productId) {
+        for (ProductBundle productBundle : productBundles){
+            if(productBundle.getProduct().getId().equals(productId))
+                return true;
+        }
+        return false;
+    }
+
+    public Long getProductId(Long productId) {
+        for (ProductBundle productBundle : productBundles) {
+            if (productBundle.getProduct().getId().equals(productId)) {
+                return productBundle.getProduct().getId();
+            }
+        }
+        return 0L;
+    }
+
+    public ProductBundle getProductBundle(Long productId) {
+        for (ProductBundle productBundle : productBundles) {
+            if (productBundle.getProduct().getId().equals(productId)) {
+                return productBundle;
+            }
+        }
+        return null;
+    }
 
     public Long getId() {
         return id;
@@ -24,11 +50,11 @@ public class Basket {
         this.id = id;
     }
 
-    public List<ProductBundle> getProductBundle() {
-        return productBundle;
+    public List<ProductBundle> getProductBundles() {
+        return productBundles;
     }
 
-    public void setProductBundle(List<ProductBundle> productBundle) {
-        this.productBundle = productBundle;
+    public void setProductBundles(List<ProductBundle> productBundle) {
+        this.productBundles = productBundle;
     }
 }

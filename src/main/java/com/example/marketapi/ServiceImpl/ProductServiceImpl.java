@@ -1,6 +1,6 @@
 package com.example.marketapi.ServiceImpl;
 
-import com.example.marketapi.DTO.FullProductDTO;
+import com.example.marketapi.DTO.ProductDTO;
 import com.example.marketapi.DTO.ProductShortDTO;
 import com.example.marketapi.Mapper.ProductMapper;
 import com.example.marketapi.Model.Product;
@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
     private ProductMapper productMapper = new ProductMapper();
 
     @Override
-    public FullProductDTO getProductById(Long productId) {
+    public ProductDTO getProductById(Long productId) {
         Product product = productRepository.findById(productId).get();
         return productMapper.mapToFullDTO(product);
     }

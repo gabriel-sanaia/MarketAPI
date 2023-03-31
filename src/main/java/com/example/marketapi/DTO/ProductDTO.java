@@ -2,25 +2,25 @@ package com.example.marketapi.DTO;
 
 import java.util.List;
 
-public class FullProductDTO {
-
-    private Long id;
-    private String name;
+public class ProductDTO {
     private String category;
-    private Long categoryId;
     private String subCategory;
-    private Long subCategoryId;
-    private String brandName;
-    private Long brandId;
     private String baseDescription;
     private String description;
+    private String brandName;
     private List<ReviewGetDTO> reviews;
+    private double price;
+    private Long brandId;
     private int reviewsCount;
     private double reviewsAvg;
-    private double price;
+    private Long categoryId;
+    private Long subCategoryId;
     private String pic;
+    private Long id;
+    private String name;
 
-    public FullProductDTO() {
+
+    public ProductDTO() {
     }
 
     public Long getId() {

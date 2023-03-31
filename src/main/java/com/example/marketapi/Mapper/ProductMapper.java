@@ -1,6 +1,6 @@
 package com.example.marketapi.Mapper;
 
-import com.example.marketapi.DTO.FullProductDTO;
+import com.example.marketapi.DTO.ProductDTO;
 import com.example.marketapi.DTO.ProductShortDTO;
 import com.example.marketapi.Model.Product;
 
@@ -8,8 +8,8 @@ public class ProductMapper {
 
     ReviewMapper reviewMapper = new ReviewMapper();
 
-    public FullProductDTO mapToFullDTO(Product entity){
-        FullProductDTO dto = new FullProductDTO();
+    public ProductDTO mapToFullDTO(Product entity){
+        ProductDTO dto = new ProductDTO();
 
         dto.setId(entity.getId());
         dto.setName(entity.getName());

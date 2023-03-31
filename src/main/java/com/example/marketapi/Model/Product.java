@@ -37,6 +37,12 @@ public class Product {
 
     }
 
+    public void setNewReviewsAvg(Integer rating){
+        Double oldAvg = reviewsCount * reviewsAvg;
+        reviewsAvg = (oldAvg + rating) / (reviewsCount + 1);
+        reviewsCount++;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -87,5 +93,49 @@ public class Product {
 
     public String getPic() {
         return pic;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void setSubCategory(SubCategory subCategory) {
+        this.subCategory = subCategory;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public void setBaseDescription(String baseDescription) {
+        this.baseDescription = baseDescription;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setReviewsCount(int reviewsCount) {
+        this.reviewsCount = reviewsCount;
+    }
+
+    public void setReviewsAvg(double reviewsAvg) {
+        this.reviewsAvg = reviewsAvg;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
     }
 }

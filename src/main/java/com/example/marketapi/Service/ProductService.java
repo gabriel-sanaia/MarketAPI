@@ -1,12 +1,12 @@
 package com.example.marketapi.Service;
 
-import com.example.marketapi.DTO.FullProductDTO;
+import com.example.marketapi.DTO.ProductDTO;
 import com.example.marketapi.DTO.ProductShortDTO;
 
 import java.util.List;
 
 public interface ProductService {
-    FullProductDTO getProductById(Long productId);
+    ProductDTO getProductById(Long productId);
 
     List<ProductShortDTO> getProducts(String name,
                                       Long brandId,

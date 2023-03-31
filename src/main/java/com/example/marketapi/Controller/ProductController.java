@@ -1,6 +1,6 @@
 package com.example.marketapi.Controller;
 
-import com.example.marketapi.DTO.FullProductDTO;
+import com.example.marketapi.DTO.ProductDTO;
 import com.example.marketapi.DTO.ReviewGetDTO;
 import com.example.marketapi.DTO.ReviewPostDTO;
 import com.example.marketapi.DTO.ProductShortDTO;
@@ -23,8 +23,8 @@ public class ProductController {
     ReviewService reviewService;
 
     @GetMapping("/product/{id}")
-    public FullProductDTO getProductById(@PathVariable("id") Long productId){
-        FullProductDTO dto = productService.getProductById(productId);
+    public ProductDTO getProductById(@PathVariable("id") Long productId){
+        ProductDTO dto = productService.getProductById(productId);
        return dto;
     }
 

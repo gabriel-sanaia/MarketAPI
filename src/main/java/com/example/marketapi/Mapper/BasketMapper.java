@@ -13,7 +13,7 @@ public class BasketMapper {
 
     public BasketDTO mapToDTO(Basket entity) {
         BasketDTO dto = new BasketDTO();
-        List<ProductBundle> productBundleList = entity.getProductBundle();
+        List<ProductBundle> productBundleList = entity.getProductBundles();
         List<ProductBundleDTO> productBundleDTOList = productBundleMapper.mapToDTOList(productBundleList);
         dto.setProductBundleDTOList(productBundleDTOList);
 

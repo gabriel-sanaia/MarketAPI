@@ -2,11 +2,12 @@ package com.example.marketapi.Service;
 
 import com.example.marketapi.DTO.ProductDTO;
 import com.example.marketapi.DTO.ProductShortDTO;
+import com.example.marketapi.Exception.IllegalParameterException;
 
 import java.util.List;
 
 public interface ProductService {
-    ProductDTO getProductById(Long productId);
+    ProductDTO getProductById(Long productId) throws IllegalParameterException;
 
     List<ProductShortDTO> getProducts(String name,
                                       Long brandId,
@@ -16,5 +17,5 @@ public interface ProductService {
                                       Long categoryId,
                                       Long subCategoryId,
                                       Integer pageNumber,
-                                      Integer pageSize );
+                                      Integer pageSize ) throws IllegalParameterException;
 }

@@ -4,6 +4,11 @@ public class ResponseBodyDTO {
     private String status;
     private String exceptionText;
 
+    public ResponseBodyDTO(String status, String exceptionText) {
+        this.status = status;
+        this.exceptionText = exceptionText;
+    }
+
     public String getStatus() {
         return status;
     }

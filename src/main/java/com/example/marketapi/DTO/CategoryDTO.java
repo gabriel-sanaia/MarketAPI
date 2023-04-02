@@ -1,11 +1,11 @@
 package com.example.marketapi.DTO;
 
 public class CategoryDTO {
+
+    private int orderId;
     private Long id;
 
     private String name;
-
-    private int orderId;
 
     public void setId(Long id) {
         this.id = id;

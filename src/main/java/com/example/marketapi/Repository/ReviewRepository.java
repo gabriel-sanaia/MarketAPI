@@ -1,6 +1,5 @@
 package com.example.marketapi.Repository;
 
-import com.example.marketapi.Model.ResponseBody;
 import com.example.marketapi.Model.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

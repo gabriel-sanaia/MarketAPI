@@ -1,16 +1,14 @@
 package com.example.marketapi.Controller;
 
 import com.example.marketapi.DTO.ProductDTO;
-import com.example.marketapi.DTO.ReviewGetDTO;
 import com.example.marketapi.DTO.ReviewPostDTO;
-import com.example.marketapi.DTO.ProductShortDTO;
-import com.example.marketapi.Model.ResponseBody;
+import com.example.marketapi.Exception.IllegalParameterException;
 import com.example.marketapi.Service.ProductService;
 import com.example.marketapi.Service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/rest")
@@ -23,34 +21,57 @@ public class ProductController {
     ReviewService reviewService;
 
     @GetMapping("/product/{id}")
-    public ProductDTO getProductById(@PathVariable("id") Long productId){
-        ProductDTO dto = productService.getProductById(productId);
-       return dto;
+    public ResponseEntity getProductById(@PathVariable("id") Long productId) {
+        try {
+            ProductDTO dto = productService.getProductById(productId);
+            return ResponseEntity.ok(dto);
+        } catch (IllegalParameterException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+        }
+
     }
 
     @GetMapping("/products")
-    public List<ProductShortDTO> getProducts(@RequestParam(name = "name", required = false) String name,
-                                             @RequestParam(name = "brandId", required = false) Long brandId,
-                                             @RequestParam(name = "priceFrom", required = false) Double priceFrom,
-                                             @RequestParam(name = "priceUntil", required = false) Double priceUntil,
-                                             @RequestParam(name = "avgRating", required = false) Double avgRating,
-                                             @RequestParam(name = "categoryId", required = false) Long categoryId,
-                                             @RequestParam(name = "subCategoryId", required = false) Long subCategoryId,
-                                             @RequestParam(name = "pageNumber", required = false) Integer pageNumber,
-                                             @RequestParam(name = "pageSize", required = false) Integer pageSize
-    ){
-        return productService.getProducts(name, brandId, priceFrom, priceUntil, avgRating, categoryId, subCategoryId, pageNumber, pageSize);
-    }
+    public ResponseEntity getProducts(@RequestParam(name = "name", required = false) String name,
+                                      @RequestParam(name = "brandId", required = false) Long brandId,
+                                      @RequestParam(name = "priceFrom", required = false) Double priceFrom,
+                                      @RequestParam(name = "priceUntil", required = false) Double priceUntil,
+                                      @RequestParam(name = "avgRating", required = false) Double avgRating,
+                                      @RequestParam(name = "categoryId", required = false) Long categoryId,
+                                      @RequestParam(name = "subCategoryId", required = false) Long subCategoryId,
+                                      @RequestParam(name = "pageNumber", required = false) Integer pageNumber,
+                                      @RequestParam(name = "pageSize", required = false) Integer pageSize){
+
+        try {
+            return ResponseEntity.ok(productService.getProducts(
+                    name, brandId, priceFrom, priceUntil, avgRating, categoryId, subCategoryId, pageNumber, pageSize));
+
+        } catch (IllegalParameterException ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+
+        } catch (Exception ex) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage()); //
+        }
+}
 
     @PostMapping("/product/{productId}/postReview")
-    public ResponseBody postReview(@PathVariable Long productId, @RequestBody ReviewPostDTO reviewPostDTO) {
-        return reviewService.postReview(productId, reviewPostDTO);
+    public ResponseEntity postReview(@PathVariable Long productId, @RequestBody ReviewPostDTO reviewPostDTO) {
+        try {
+            return ResponseEntity.ok(reviewService.postReview(productId, reviewPostDTO));
+        }catch (IllegalParameterException ex){
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+
     }
 
     @GetMapping("/product/{productId}/getReviews")
-    public List<ReviewGetDTO> getReviewsByProductId(@PathVariable Long productId){
+    public ResponseEntity getReviewsByProductId(@PathVariable Long productId){
+        try {
+            return ResponseEntity.ok(reviewService.getReviewsByProductId(productId));
 
-        return reviewService.getReviewsByProductId(productId);
+        }catch (IllegalParameterException ex){
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
 
 }
